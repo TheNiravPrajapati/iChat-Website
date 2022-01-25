@@ -1,0 +1,74 @@
+/* body section  */
+body{
+    background-image: linear-gradient(rgb(214, 197, 197),rgb(77, 77, 223));
+    height:100vh;
+}
+
+/* Navbar section  */
+h1{
+    margin-top: 10px;
+    font-size: 30px;;
+    text-align: center;
+}
+.logo{
+    display:block;
+    margin:auto;
+    width:80px;
+    height:80px;
+    margin-bottom: 10px;
+}
+
+/* chat section  */
+.container{
+    max-width: 900px;
+    margin: auto;
+    height:65vh;
+    background-color: rgb(124, 124, 185);
+    border: 2px solid black;
+    border-radius: 20px;
+    overflow-y: auto;
+}
+
+.message{
+     background-color: rgb(104, 112, 219);
+     width:30%;
+     padding:10px;
+     border-radius: 20px;
+     border:2px solid black;
+     margin:17px 10px;
+}
+
+.left{
+    float:left;
+    clear:both;
+}
+
+.right{
+    float:right;
+    clear:both;
+}
+
+
+/* message input section  */
+#send-container{
+    display:block;
+    margin: auto;
+    text-align: center;
+    width:100%;
+    margin-top:10px;
+}
+
+#messageInp{
+    width:60%;
+    height:30px;
+    border:2px solid black;
+    border-radius: 20px;
+}
+
+.btn{
+    cursor: pointer;
+    border:2px solid black;
+    border-radius: 20px;
+    height:35px;
+    width:70px;
+}
