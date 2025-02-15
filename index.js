@@ -6,16 +6,21 @@ const path = require('path');
 
 const app = express();
 
-// Apply CORS middleware (Update origin with deployed frontend URL)
+// Apply CORS (Make sure to allow the deployed frontend URL)
 app.use(cors({
-    origin: '*',  // Change this to your deployed frontend URL
+    origin: '*', // Change this to your frontend URL if deployed separately
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     credentials: true
 }));
 
-// Serve static files if needed (for frontend in same project)
-app.use(express.static(path.join(__dirname, '../public')));
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, './')));
+
+// Serve index.html for root route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './index.html'));
+});
 
 // Create an HTTP server
 const server = http.createServer(app);
@@ -23,7 +28,7 @@ const server = http.createServer(app);
 // Create a Socket.io instance attached to the HTTP server
 const io = socketIo(server, {
     cors: {
-        origin: '*', // Change this to your deployed frontend URL
+        origin: '*', // Change this to your frontend URL if needed
         methods: ["GET", "POST"],
         credentials: true
     }
