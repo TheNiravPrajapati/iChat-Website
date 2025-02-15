@@ -2,25 +2,28 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 const cors = require('cors');
+const path = require('path');
 
-// Create an Express application
 const app = express();
 
-// Apply the CORS middleware
+// Apply CORS middleware (Update origin with deployed frontend URL)
 app.use(cors({
-    origin: 'http://127.0.0.1:5500',
+    origin: '*',  // Change this to your deployed frontend URL
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     credentials: true
 }));
 
-// Create an HTTP server and pass the app as the handler
+// Serve static files if needed (for frontend in same project)
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Create an HTTP server
 const server = http.createServer(app);
 
 // Create a Socket.io instance attached to the HTTP server
 const io = socketIo(server, {
     cors: {
-        origin: 'http://127.0.0.1:5500',
+        origin: '*', // Change this to your deployed frontend URL
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -29,6 +32,8 @@ const io = socketIo(server, {
 const users = {};
 
 io.on('connection', socket => {
+    console.log('A user connected:', socket.id);
+
     socket.on('new-user-joined', name => {
         users[socket.id] = name;
         socket.broadcast.emit('user-joined', name);
@@ -44,8 +49,8 @@ io.on('connection', socket => {
     });
 });
 
-// Start the server
-const PORT = 8000;
+// Use dynamic port for Render deployment
+const PORT = process.env.PORT || 8000;
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
