@@ -39,7 +39,7 @@ nav {
 }
 
 h1 {
-    font-size: 18px;
+    font-size: 25px;
     text-align: center;
     color: #1e88e5;
     width: 100%;
@@ -200,12 +200,17 @@ h1 {
         position: static;
         justify-content: flex-start;
         margin-bottom: 0;
+        padding-left: 10px;
+    }
+    h1{
+        font-size: 18px;
     }
 
     .user-info {
         position: static;
         justify-content: flex-end;
         margin-top: 0;
+        padding-right: 10px;
     }
 
     .container {
