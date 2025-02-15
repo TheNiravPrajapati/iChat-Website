@@ -9,6 +9,15 @@
   "author": "Nirav",
   "license": "ISC",
   "dependencies": {
-    "socket.io": "^4.4.1"
-  }
+    "express": "^4.21.2",
+    "nodemon": "^3.1.2",
+    "socket.io": "^4.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no"
+  },
+  "keywords": [
+    "no"
+  ]
 }

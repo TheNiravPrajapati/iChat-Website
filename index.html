@@ -5,22 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iChat web</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
     <script defer src="js/client.js"></script>
 </head>
 <body>
     <nav>
-        <img class="logo"src="chat.png" alt="">
-        <h1>Welcome To iChat Application </h1>
+        <div class="logo-container">
+            <img class="logo" src="chat.png" alt="iChat Logo">
+            <span class="logo-text">iChat</span>
+        </div>
+        <h1>Welcome To iChat Application</h1>
+        <div class="user-info">
+            <img class="user-img" src="user.png" alt="User Image">
+            <span id="user-name" class="user-name"></span>
+        </div>
     </nav>
     <div class="container">
-    </div>
-    <div class="send">
-        <form action="#" id="send-container">
-            <input type="text" name="messageInp" id="messageInp">
-            <button class="btn" type="submit">send</button>
-        </form>
+        <div class="messages"></div>
+        <div class="send">
+            <form action="#" id="send-container">
+                <input type="text" name="messageInp" id="messageInp" placeholder="Type a message">
+                <button class="btn" type="submit">Send</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
